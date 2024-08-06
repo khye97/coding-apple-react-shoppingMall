@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { useEffect, useRef, useState } from 'react';
+import '../App.css';
 
 
 // let YellowBtn = styled.button`
@@ -23,6 +24,14 @@ function Detail (props){
   let isMountedRef = useRef(false);
   let [isMounted, setIsMounted] = useState(false);
   let [tab, setTab] = useState(0);
+  let [fade2, setFade2] = useState('');
+
+  useEffect(() => {
+    setTimeout(() => { setFade2('end'); }, 100);
+    return () => {
+      setFade2('');
+    }
+  }, [])
 
   let result = props.shoes.filter(function(item){return item.id == id})
   console.log(result);
@@ -49,7 +58,7 @@ function Detail (props){
   // }, [num]);
   
   return (
-    <Container>
+    <Container className={`start ${fade2}`}>
       {alertTimer && <div className='alert alert-warning'>2초 이내 구매시 할인</div>}
       <input type='text' onChange={(event) => { setNum(event.target.value) }} />
       <Row>
@@ -94,12 +103,21 @@ function Detail (props){
 }
 
 function TabContent (props){
+  let [fade, setFade] = useState('');
+
+  useEffect(() => {
+    setTimeout(() => { setFade('end'); }, 100);
+    return () => {
+      setFade('');
+    }
+  }, [props.tab])
+
   if (props.tab == 0){
-    return <div>내용0</div>
+    return <div className={`start ${fade}`}><div>내용0</div></div>
   } else if (props.tab == 1){
-    return <div>내용1</div>
+    return <div className={`start ${fade}`}><div>내용1</div></div>
   } else if (props.tab == 2){
-    return <div>내용2</div>
+    return <div className={`start ${fade}`}><div>내용2</div></div>
   }
 }
 
