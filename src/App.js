@@ -5,6 +5,7 @@ import data from './data.js';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Detail from './pages/Detail.js'
 import Main from './pages/Main.js'
+import Cart from './pages/Cart.js'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Nav.Link onClick={()=>{navigate('/detail')}}>Detail Page</Nav.Link>
             <Nav.Link onClick={()=>{navigate('/about')}}>About</Nav.Link>
             <Nav.Link onClick={()=>{navigate('/event')}}>Event</Nav.Link>
+            <Nav.Link onClick={()=>{navigate('/cart')}}>Cart</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
@@ -37,6 +39,7 @@ function App() {
           <Route path="one" element={<div>첫 주문시 양배추즙 서비스</div>}/>
           <Route path="two" element={<div>생일기념 쿠폰 받기</div>}/>
         </Route>
+        <Route path="/cart" element={<Cart />} />
       </Routes>
 
     </div>
@@ -47,7 +50,7 @@ function About (){
   return (
     <div>
       <h4>About 페이지</h4>
-      <Link to="/about/member">member</Link>```
+      <Link to="/about/member">member</Link>
       <Link to="/about/location">location</Link>
       <Outlet></Outlet>
     </div>

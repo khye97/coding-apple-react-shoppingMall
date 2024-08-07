@@ -74,17 +74,6 @@ function Detail (props){
         </Col>
       </Row>
       <Row>
-        {/* <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3">
-          <Tab eventKey="home" title="Home">
-            Tab content for Home
-          </Tab>
-          <Tab eventKey="profile" title="Profile">
-            Tab content for Profile
-          </Tab>
-          <Tab eventKey="contact" title="Contact">
-            Tab content for Contact
-          </Tab>
-        </Tabs> */}
         <Nav variant="tabs"  defaultActiveKey="link0">
           <Nav.Item>
             <Nav.Link eventKey="link0" onClick={() => { setTab(0) }}>버튼0</Nav.Link>
